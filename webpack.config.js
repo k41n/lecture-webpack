@@ -1,5 +1,6 @@
-var webpack = require('webpack');
-var path    = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const webpack           = require('webpack');
+const path              = require('path');
 
 module.exports = {
   entry: './src/roots.js',
@@ -14,12 +15,19 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader'
       }
+    ],
+    rules: [
+      {
+        test: /\.sass$/,
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+      }
     ]
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
+    new ExtractTextPlugin("styles.css")
   ]
 }

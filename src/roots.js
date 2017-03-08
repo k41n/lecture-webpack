@@ -1,4 +1,5 @@
 import derive from './Derive'
+import style  from './roots.sass'
 
 var RootsApp = {
   find: async function(expression) {
