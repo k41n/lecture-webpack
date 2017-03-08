@@ -7,7 +7,7 @@ var RootsApp = {
        }
     }
 
-   xmlhttp.open("GET", "https://newton.now.sh/zeroes/" + encodeURIComponent(expression), true);
+   xmlhttp.open("GET", "https://newton.now.sh/derive/" + encodeURIComponent(expression), true);
    xmlhttp.send();
   },
 
