@@ -35,6 +35,17 @@ module.exports = {
     new webpack.DefinePlugin({
       API_URL: JSON.stringify('https://newton.now.sh/derive/')
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+      },
+      output: {
+        comments: false
+      },
+      sourceMap: false
+    }),    
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
