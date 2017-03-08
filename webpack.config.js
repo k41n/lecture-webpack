@@ -3,7 +3,9 @@ const webpack           = require('webpack');
 const path              = require('path');
 
 module.exports = {
-  entry: './src/roots.js',
+  entry: [
+    './src/roots.js'
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -14,12 +16,14 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader'
-      }
-    ],
-    rules: [
+      },
       {
         test: /\.sass$/,
-        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+        loaders: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ]
       }
     ]
   },
@@ -28,10 +32,9 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new ExtractTextPlugin("styles.css"),
     new webpack.DefinePlugin({
-      API_URL: JSON.stringify('https://newton.now.sh/derive/'),
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
+      API_URL: JSON.stringify('https://newton.now.sh/derive/')
+    })//,
+    // new ExtractTextPlugin("styles.css")
   ]
 }
