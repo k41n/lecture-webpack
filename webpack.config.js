@@ -1,6 +1,6 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const webpack           = require('webpack');
 const path              = require('path');
+const CompressionPlugin = require("compression-webpack-plugin")
 
 module.exports = {
   entry: [
@@ -34,7 +34,13 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       API_URL: JSON.stringify('https://newton.now.sh/derive/')
-    })//,
-    // new ExtractTextPlugin("styles.css")
+    }),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.html$|\.css$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
   ]
 }

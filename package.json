@@ -27,6 +27,7 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
+    "compression-webpack-plugin": "^0.3.2",
     "jquery": "^3.1.1"
   }
 }
