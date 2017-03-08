@@ -1,14 +1,8 @@
 var RootsApp = {
   find: function(expression) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-        document.getElementById("result").innerHTML = JSON.parse(xmlhttp.responseText).result;
-       }
-    }
-
-   xmlhttp.open("GET", "https://newton.now.sh/derive/" + encodeURIComponent(expression), true);
-   xmlhttp.send();
+    derive(expression, function(result) {
+      document.getElementById("result").innerHTML = result
+    })
   },
 
   init: function() {
