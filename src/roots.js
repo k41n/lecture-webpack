@@ -1,3 +1,5 @@
+import derive from './Derive'
+
 var RootsApp = {
   find: async function(expression) {
     const result = await derive(expression)

@@ -6,15 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server -p 3000 -c-1 dist",
-    "build": "babel src -d dist && cp src/index.html dist/index.html && cp src/roots.css dist/roots.css"
+    "build": "webpack && cp src/index.html dist/index.html && cp src/roots.css dist/roots.css"
   },
   "author": "Andrei Malyshev <Andrei.Malyshev@kodep.ru> (http://kodep.ru/)",
   "license": "ISC",
-  "dependencies": {
-    "http-server": "^0.9.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.23.0",
-    "babel-preset-es2017": "^6.22.0"
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2017": "^6.22.0",
+    "http-server": "^0.9.0",
+    "webpack": "^2.2.1"
   }
 }
