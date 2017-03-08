@@ -1,9 +1,11 @@
-window.derive = function(expression, callback) {
-  $.ajax({
-    url: 'https://newton.now.sh/derive/' + encodeURIComponent(expression),
-    method: 'GET',
-    success: function(response) {
-      callback(response.result)
-    }
+window.derive = function(expression) {
+  return new Promise( resolve => {
+    $.ajax({
+      url: 'https://newton.now.sh/derive/' + encodeURIComponent(expression),
+      method: 'GET',
+      success: response => {
+        resolve(response.result)
+      }
+    })
   })
 }

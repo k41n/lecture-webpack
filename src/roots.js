@@ -1,12 +1,11 @@
 var RootsApp = {
-  find: function(expression) {
-    derive(expression, function(result) {
-      $('#result').html(result)
-    })
+  find: async function(expression) {
+    const result = await derive(expression)
+    $('#result').html(result)
   },
 
   init: function() {
-    $(form).on('submit', function(event) {
+    $(form).on('submit', event => {
       event.preventDefault();
       var expression = event.target[0].value
       RootsApp.find(expression)
@@ -14,6 +13,4 @@ var RootsApp = {
   }
 }
 
-$(function() {
-  RootsApp.init()
-})
+$(() => { RootsApp.init() })
