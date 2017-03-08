@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -p 3000 -c-1 dist"
+    "start": "http-server -p 3000 -c-1 src"
   },
   "author": "Andrei Malyshev <Andrei.Malyshev@kodep.ru> (http://kodep.ru/)",
   "license": "ISC",
