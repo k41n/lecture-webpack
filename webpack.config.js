@@ -28,6 +28,10 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("styles.css"),
+    new webpack.DefinePlugin({
+      API_URL: JSON.stringify('https://newton.now.sh/derive/'),
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
   ]
 }
